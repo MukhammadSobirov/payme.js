@@ -1,0 +1,16 @@
+{
+  "name": "payme",
+  "version": "1.0.0",
+  "description": "Lightweight NPM package to integrate Payme payment system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "payme",
+    "payments",
+    "uzbekistan"
+  ],
+  "author": "Mukhammad Sobirov",
+  "license": "MIT"
+}
