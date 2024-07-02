@@ -1,5 +1,5 @@
 {
-  "name": "payme",
+  "name": "payme.js",
   "version": "1.0.0",
   "description": "Lightweight NPM package to integrate Payme payment system",
   "main": "./dist/index.js",
