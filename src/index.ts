@@ -1,14 +1,14 @@
-import { MerchantCreator } from "./classes/merchant-creator"
-import { SubscribeCreator } from "./classes/subscribe-creator"
+import { MerchantCreator } from "./classes/creators/merchant-creator"
+import { SubscribeCreator } from "./classes/creators/subscribe-creator"
 import { TApiMethodOption } from "./types/api-method-option"
 
 
 export class PaymeClient {
-    constructor(option: TApiMethodOption) {
+   static create(option: TApiMethodOption) {
         if(option === "merchant") {
-            return new SubscribeCreator()
-        } else {
             return new MerchantCreator()
+        } else {
+            return new SubscribeCreator()
         }
     }
 }
