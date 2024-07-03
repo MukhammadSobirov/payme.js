@@ -6,9 +6,9 @@ import { TApiMethodOption } from "./types/api-method-option"
 export class PaymeClient {
    static create(option: TApiMethodOption) {
         if(option === "merchant") {
-            return new MerchantCreator()
+            return new MerchantCreator().init()
         } else {
-            return new SubscribeCreator()
+            return new SubscribeCreator().init()
         }
     }
 }
