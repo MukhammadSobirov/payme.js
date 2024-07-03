@@ -1,5 +1,4 @@
 import { PaymeClient } from "../src"
-import { SubscribeAPI } from "../src/products/subscribe-api"
 
 describe('Should check if payme API url is set correctly depending on NODE_ENV', () => { 
     test('payme api is set to test by default', () => { 
