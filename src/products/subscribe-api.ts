@@ -2,7 +2,7 @@ import axios from "axios";
 import { TApiMethodOption } from "../types/api-method-option";
 import { IReceiptsCreatePayload } from "../types/receipts-create-payload";
 import { ISubscribeApiProduct } from "../types/subscribe-api-product";
-import { SUBSCRIBE_API_METHODS } from "../types/subscribe-api-methods";
+import { SUBSCRIBE_API_METHODS } from "../utils/subscribe-api-methods";
 
 export class SubscribeAPI implements ISubscribeApiProduct {
 
@@ -67,6 +67,35 @@ export class SubscribeAPI implements ISubscribeApiProduct {
         return this._payme_api_url
     }
 
+    /**
+     * receiptsCreate
+     * @example:
+     * ```typescript
+     *  await subscribeApi.receiptsCreate({
+                id: 1,
+                params: {
+                    amount: 100,
+                    description: "Test",
+                    account: undefined,
+                    detail: {
+                        receipt_type: 0,
+                        items: [
+                            {
+                                code: "1",
+                                count: 1,
+                                package_code: "1",
+                                price: 100,
+                                title: "Test",
+                                vat_percent: 0,
+                                discount: 0,
+                                units: 1,
+                            }
+                        ],
+                    }
+                }
+            })
+        * ```
+     */
     async receiptsCreate(payload: IReceiptsCreatePayload): Promise<IReceiptsCreateResponse> {
         this.validateCredentials();
 
