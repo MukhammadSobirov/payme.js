@@ -8,6 +8,7 @@ import { IReceiptsPayPayload } from "./receipts-pay-payload";
 import { IReceiptsPayResponse } from "./receipts-pay-response";
 import { IReceiptsSendPayload } from "./receipts-send-payload";
 import { IReceiptsSendResponse } from "./receipts-send-response";
+import { IReceiptsGetPayload } from "./receipts-get-payload";
 
 export interface ISubscribeApiProduct {
     methodName: TApiMethodOption;
@@ -22,6 +23,7 @@ export interface ISubscribeApiProduct {
     receiptsSend(payload: IReceiptsSendPayload): Promise<IReceiptsSendResponse>
     receiptsCancel(payload: IReceiptsCancelPayload): Promise<IReceiptsCancelResponse>
     receiptsCheck(payload: IReceiptsCheckPayload): Promise<IReceiptsCheckResponse>
-    // receiptsGet
+    receiptsGet(payload: IReceiptsGetPayload): Promise<IReceiptsGetResponse>
     // receiptsGetAll
+    // receiptsSetFiscalData
 }
