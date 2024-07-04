@@ -1,6 +1,6 @@
 {
   "name": "payme.js",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Lightweight NPM package to integrate Payme payment system",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
