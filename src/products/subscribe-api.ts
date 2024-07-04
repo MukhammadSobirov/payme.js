@@ -3,8 +3,11 @@ import { TApiMethodOption } from "../types/api-method-option";
 import { IReceiptsCreatePayload } from "../types/receipts-create-payload";
 import { ISubscribeApiProduct } from "../types/subscribe-api-product";
 import { SUBSCRIBE_API_METHODS } from "../utils/subscribe-api-methods";
+import { IReceiptsPayPayload } from "../types/receipts-pay-payload";
+import { IReceiptsPayResponse } from "../types/receipts-pay-response";
 
 export class SubscribeAPI implements ISubscribeApiProduct {
+
 
     private _secret = ""
     private _id = ""
@@ -101,7 +104,7 @@ export class SubscribeAPI implements ISubscribeApiProduct {
 
         try {
             const res = await this.paymeRequest.post('', {
-                id: payload.id,
+                id: payload.requestId,
                 method: SUBSCRIBE_API_METHODS.RECEIPTS_CREATE,
                 params: {
                     amount: payload.params.amount,
@@ -115,6 +118,30 @@ export class SubscribeAPI implements ISubscribeApiProduct {
         } catch (error) {
             console.error(error);
             throw new Error("Error while creating receipt");
+        }
+    }
+
+    /**
+     * receiptsPay
+     */
+    async receiptsPay(payload: IReceiptsPayPayload): Promise<IReceiptsPayResponse> {
+        this.validateCredentials();
+
+        try {
+            const res = await this.paymeRequest.post('', {
+                id: payload.requestId,
+                method: SUBSCRIBE_API_METHODS.RECEIPTS_PAY,
+                params: {
+                    id: payload.params.id,
+                    token: payload.params.token,
+                    payer: payload.params.payer,
+                },
+            });
+
+            return res.data;
+        } catch (error) {
+            console.error(error);
+            throw new Error("Error while paying receipt");
         }
     }
 

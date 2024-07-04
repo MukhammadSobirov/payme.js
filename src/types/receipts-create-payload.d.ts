@@ -75,6 +75,6 @@ export interface IParams {
 }
 
 export interface IReceiptsCreatePayload {
-    id: number;
+    requestId: number;
     params: IParams;
 }
