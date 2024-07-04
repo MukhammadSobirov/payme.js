@@ -12,12 +12,15 @@ import { IReceiptsGetPayload } from "./receipts-get-payload";
 import { IReceiptsGetAllPayload } from "./receipts-get-all-payload";
 import { IReceiptsSetFiscalDataPayload } from "./receipts-set-fiscal-data";
 import { IReceiptsSetFiscalDataResponse } from "./receipts-set-fiscal-data-response";
+import { IReceiptsCreateResponse } from "./receipts-create-response";
+import { IReceiptsGetResponse } from "./receipts-get-response";
+import { IReceiptsGetAllResponse } from "./receipts-get-all-response";
 
 export interface ISubscribeApiProduct {
     methodName: TApiMethodOption;
     setSecretKey(secret: string): void;
     setPaymeId(id: string): void;
-    setPaymeApiURL(value: "dev" | "production");
+    setPaymeApiURL(value: "dev" | "production"): void;
     paymeApiURL: string;
 
     // API methods

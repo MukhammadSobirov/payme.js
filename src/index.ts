@@ -1,9 +1,9 @@
 import { MerchantAPI } from "./products/merchant-api"
 import { SubscribeAPI } from "./products/subscribe-api"
-import { TApiMethodOption } from "./types/api-method-option"
+import { TApiMethodOption } from "./types/api-method-option";
 
-export class PaymeClient  {
-   static create<T extends TApiMethodOption>(type: T): T extends 'merchant' ? MerchantAPI : SubscribeAPI {
+export class PaymeClient {
+    static create<T extends TApiMethodOption>(type: T): T extends 'merchant' ? MerchantAPI : SubscribeAPI {
         if (type === 'merchant') {
             return new MerchantAPI() as T extends 'merchant' ? MerchantAPI : SubscribeAPI;
         } else if (type === 'subscribe') {

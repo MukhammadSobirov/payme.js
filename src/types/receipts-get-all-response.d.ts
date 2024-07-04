@@ -1,10 +1,10 @@
-interface IReceiptsGetAllResponse {
+export interface IReceiptsGetAllResponse {
     jsonrpc: string;
     id: number;
-    result: IReceipt[];
+    result: IReceiptsGetAllResponseReceipt[];
 }
 
-interface IReceipt {
+interface IReceiptsGetAllResponseReceipt {
     _id: string;
     create_time: number;
     pay_time: number;
@@ -20,50 +20,50 @@ interface IReceipt {
     amount: number;
     currency: number;
     commission: number;
-    account: IAccount[];
-    card: ICard | null;
-    merchant: IMerchant;
-    meta: IMeta | null;
+    account: IReceiptsGetAllResponseAccount[];
+    card: IReceiptsGetAllResponseCard | null;
+    merchant: IReceiptsGetAllResponseMerchant;
+    meta: IReceiptsGetAllResponseMeta | null;
     processing_id: number;
 }
 
-interface IAccount {
+interface IReceiptsGetAllResponseAccount {
     name: string;
-    title: ILanguageTitle;
+    title: IReceiptsGetAllResponseLanguageTitle;
     value: string | number;
     main: boolean;
 }
 
-interface ILanguageTitle {
+interface IReceiptsGetAllResponseLanguageTitle {
     ru: string;
     uz: string;
     en?: string;
 }
 
-interface ICard {
+interface IReceiptsGetAllResponseCard {
     number: string;
     expire: string;
 }
 
-interface IMerchant {
+export interface IReceiptsGetAllResponseMerchant {
     _id: string;
     name: string;
     organization: string;
     address: string;
     business_id: string;
-    epos: IEpos;
+    epos: IReceiptsGetAllResponseEpos;
     date: number;
     logo: string | null;
-    type: ILanguageTitle;
+    type: IReceiptsGetAllResponseLanguageTitle;
     terms: string | null;
 }
 
-interface IEpos {
+export interface IReceiptsGetAllResponseEpos {
     merchantId: string;
     terminalId: string;
 }
 
-interface IMeta {
+export interface IReceiptsGetAllResponseMeta {
     source: string;
     owner: string;
 }

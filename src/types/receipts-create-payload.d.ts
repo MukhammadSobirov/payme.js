@@ -1,4 +1,4 @@
-export interface IShipping {
+interface IReceiptsCreatePayloadShipping {
     /**
      * address
      * @description Адрес доставки товара или услуги. Необязательное поле
@@ -7,7 +7,7 @@ export interface IShipping {
     title: string;
 }
 
-export interface IItem {
+interface IReceiptsCreatePayloadItem {
     /**
      * discount
      * @description Скидка с учетом количества товаров или услуг в тийинах
@@ -57,24 +57,24 @@ export interface IItem {
     package_code: string;
 }
 
-export interface IDetail {
+interface IReceiptsCreatePayloadDetail {
     /**
      * receipt_type
      * @deprecated Продажа/Возврат = 0
      */
     receipt_type: number;
-    shipping?: IShipping;
-    items: IItem[];
+    shipping?: IReceiptsCreatePayloadShipping;
+    items: IReceiptsCreatePayloadItem[];
 }
 
-export interface IParams {
+interface IReceiptsCreatePayloadParams {
     amount: number;
     account: any;
-    detail: IDetail;
+    detail: IReceiptsCreatePayloadDetail;
     description?: string;
 }
 
 export interface IReceiptsCreatePayload {
     requestId: number;
-    params: IParams;
+    params: IReceiptsCreatePayloadParams;
 }

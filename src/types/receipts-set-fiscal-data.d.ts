@@ -2,11 +2,11 @@ export interface IReceiptsSetFiscalDataPayload {
     requestId: number;
     params: {
         id: string;
-        fiscal_data: IFiscalData;
+        fiscal_data: IReceiptsSetFiscalDataFiscalData;
     };
 }
 
-interface IFiscalData {
+interface IReceiptsSetFiscalDataFiscalData {
     status_code: number;
     message: string;
     terminal_id: string;

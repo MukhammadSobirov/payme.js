@@ -1,15 +1,15 @@
 export interface IReceiptsPayPayload {
     requestId: number;
-    params: IParams;
+    params: IReceiptsPayParams;
 }
 
-interface IParams {
+interface IReceiptsPayParams {
     id: string;
     token: string;
-    payer?: IPayer;
+    payer?: IReceiptsPayPayer;
 }
 
-interface IPayer {
+interface IReceiptsPayPayer {
     id: string;
     phone: string;
     email: string;

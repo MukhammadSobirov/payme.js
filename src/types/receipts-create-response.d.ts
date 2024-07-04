@@ -1,14 +1,14 @@
-interface IDiscount {
+interface IReceiptsCreateResponseDiscount {
     title: string;
     price: number;
 }
 
-interface IShipping {
+interface IReceiptsCreateResponseShipping {
     title: string;
     price: number;
 }
 
-interface IItem {
+interface IReceiptsCreateResponseItem {
     title: string;
     price: number;
     count: number;
@@ -18,36 +18,36 @@ interface IItem {
     package_code: string;
 }
 
-interface IDetail {
-    discount: IDiscount;
-    shipping: IShipping;
-    items: IItem[];
+interface IReceiptsCreateResponseDetail {
+    discount: IReceiptsCreateResponseDiscount;
+    shipping: IReceiptsCreateResponseShipping;
+    items: IReceiptsCreateResponseItem[];
 }
 
-interface IEpos {
+interface IReceiptsCreateResponseEpos {
     merchantId: string;
     terminalId: string;
 }
 
-interface IMerchant {
+interface IReceiptsCreateResponseMerchant {
     _id: string;
     name: string;
     organization: string;
     address: string;
     business_id: string;
-    epos: IEpos;
+    epos: IReceiptsCreateResponseEpos;
     date: number;
     logo: any; // If logo can be of different types, adjust this type accordingly
     type: string;
     terms: any; // If terms can be of different types, adjust this type accordingly
 }
 
-interface IMeta {
+interface IReceiptsCreateResponseMeta {
     source: string;
     owner: string;
 }
 
-interface IReceipt {
+interface IReceiptsCreateResponseReceipt {
     _id: string;
     create_time: number;
     pay_time: number;
@@ -59,23 +59,23 @@ interface IReceipt {
     category: any; // If category can be of different types, adjust this type accordingly
     error: any; // If error can be of different types, adjust this type accordingly
     description: string;
-    detail: IDetail;
+    detail: IReceiptsCreateResponseDetail;
     amount: number;
     currency: number;
     commission: number;
     account: any
     card: any; // If card can be of different types, adjust this type accordingly
-    merchant: IMerchant;
-    meta: IMeta;
+    merchant: IReceiptsCreateResponseMerchant;
+    meta: IReceiptsCreateResponseMeta;
     processing_id: any; // If processing_id can be of different types, adjust this type accordingly
 }
 
-interface IResult {
-    receipt: IReceipt;
+interface IReceiptsCreateResponseResult {
+    receipt: IReceiptsCreateResponseReceipt;
 }
 
-interface IReceiptsCreateResponse {
+export interface IReceiptsCreateResponse {
     jsonrpc: string;
     id: number;
-    result: IResult;
+    result: IReceiptsCreateResponseResult;
 }

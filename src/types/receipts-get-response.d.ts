@@ -1,12 +1,12 @@
-interface IReceiptsGetResponse {
+export interface IReceiptsGetResponse {
     jsonrpc: string;
     id: number;
     result: {
-        receipt: IReceipt;
+        receipt: IReceiptsGetResponseReceipt;
     };
 }
 
-interface IReceipt {
+interface IReceiptsGetResponseReceipt {
     _id: string;
     create_time: number;
     pay_time: number;
@@ -21,36 +21,36 @@ interface IReceipt {
     detail: string | null;
     amount: number;
     commission: number;
-    account: IAccount[];
+    account: IReceiptsGetResponseAccount[];
     card: string | null;
-    merchant: IMerchant;
+    merchant: IReceiptsGetResponseMerchant;
     meta: string | null;
 }
 
-interface IAccount {
+interface IReceiptsGetResponseAccount {
     name: string;
     title: string;
     value: string;
 }
 
-interface IMerchant {
+interface IReceiptsGetResponseMerchant {
     _id: string;
     name: string;
     organization: string;
     address: string;
-    epos: IEpos;
+    epos: IReceiptsGetResponseEpos;
     date: number;
     logo: string | null;
     type: string;
     terms: string | null;
-    payer: IPayer;
+    payer: IReceiptsGetResponsePayer;
 }
 
-interface IEpos {
+interface IReceiptsGetResponseEpos {
     merchantId: string;
     terminalId: string;
 }
 
-interface IPayer {
+interface IReceiptsGetResponsePayer {
     phone: string;
 }
