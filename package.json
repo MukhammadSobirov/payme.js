@@ -1,6 +1,6 @@
 {
   "name": "payme.js",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Lightweight NPM package to integrate Payme payment system",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -18,6 +18,10 @@
     "uzbekistan"
   ],
   "author": "Mukhammad Sobirov",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/MukhammadSobirov/payme.js.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^29.5.12",
