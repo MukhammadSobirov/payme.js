@@ -47,7 +47,7 @@ export class SubscribeAPI implements ISubscribeApiProduct {
             throw new Error("Payme ID is required");
         }
 
-        axios.create({
+        this.paymeRequest = axios.create({
             baseURL: `${this.paymeApiURL}`,
             headers: {
                 'X-Auth': `${this._id}:${this._secret}`,
