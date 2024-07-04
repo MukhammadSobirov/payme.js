@@ -12,6 +12,7 @@ import { IReceiptsCancelResponse } from "../types/receipts-cancel-response";
 import { IReceiptsCheckPayload } from "../types/receipts-check-payload";
 import { IReceiptsCheckResponse } from "../types/receipts-check-response";
 import { IReceiptsGetPayload } from "../types/receipts-get-payload";
+import { IReceiptsGetAllPayload } from "../types/receipts-get-all-payload";
 
 export class SubscribeAPI implements ISubscribeApiProduct {
 
@@ -215,6 +216,8 @@ export class SubscribeAPI implements ISubscribeApiProduct {
     }
 
     async receiptsGet(payload: IReceiptsGetPayload): Promise<IReceiptsGetResponse> {
+        this.validateCredentials();
+
         try {
             const res = await this.paymeRequest.post('', {
                 id: payload.requestId,
@@ -231,4 +234,25 @@ export class SubscribeAPI implements ISubscribeApiProduct {
         }
     }
 
+    async receiptsGetAll(payload: IReceiptsGetAllPayload): Promise<IReceiptsGetAllResponse> {
+        this.validateCredentials();
+
+        try {
+            const res = await this.paymeRequest.post('', {
+                id: payload.requestId,
+                method: SUBSCRIBE_API_METHODS.RECEIPTS_GET_ALL,
+                params: {
+                    count: payload.params.count,
+                    from: payload.params.from,
+                    to: payload.params.to,
+                    offset: payload.params.offset,
+                },
+            });
+
+            return res.data;
+        } catch (error) {
+            console.error(error)
+            throw new Error("Error while getting all receipts")
+        }
+    }
 }
