@@ -2,6 +2,8 @@ import { TApiMethodOption } from "./api-method-option"
 import { IReceiptsCreatePayload } from "./receipts-create-payload";
 import { IReceiptsPayPayload } from "./receipts-pay-payload";
 import { IReceiptsPayResponse } from "./receipts-pay-response";
+import { IReceiptsSendPayload } from "./receipts-send-payload";
+import { IReceiptsSendResponse } from "./receipts-send-response";
 
 export interface ISubscribeApiProduct {
     methodName: TApiMethodOption;
@@ -13,7 +15,7 @@ export interface ISubscribeApiProduct {
     // API methods
     receiptsCreate(payload: IReceiptsCreatePayload): Promise<IReceiptsCreateResponse>
     receiptsPay(payload: IReceiptsPayPayload): Promise<IReceiptsPayResponse>
-    // receiptsSend
+    receiptsSend(payload: IReceiptsSendPayload): Promise<IReceiptsSendResponse>
     // receiptsCancel
     // receiptsCheck
     // receiptsGet

@@ -5,6 +5,8 @@ import { ISubscribeApiProduct } from "../types/subscribe-api-product";
 import { SUBSCRIBE_API_METHODS } from "../utils/subscribe-api-methods";
 import { IReceiptsPayPayload } from "../types/receipts-pay-payload";
 import { IReceiptsPayResponse } from "../types/receipts-pay-response";
+import { IReceiptsSendPayload } from "../types/receipts-send-payload";
+import { IReceiptsSendResponse } from "../types/receipts-send-response";
 
 export class SubscribeAPI implements ISubscribeApiProduct {
 
@@ -145,4 +147,27 @@ export class SubscribeAPI implements ISubscribeApiProduct {
         }
     }
 
+    /**
+     * receiptsSend
+     * @description Send receipt to the user via SMS
+     */
+    async receiptsSend(payload: IReceiptsSendPayload): Promise<IReceiptsSendResponse> {
+        this.validateCredentials();
+
+        try {
+            const res = await this.paymeRequest.post('', {
+                id: payload.requestId,
+                method: SUBSCRIBE_API_METHODS.RECEIPTS_SEND,
+                params: {
+                    id: payload.params.id,
+                    phone: payload.params.phone,
+                },
+            });
+
+            return res.data;
+        } catch (error) {
+            console.error(error);
+            throw new Error("Error while sending receipt");
+        }
+    }
 }
