@@ -9,6 +9,8 @@ import { IReceiptsSendPayload } from "../types/receipts-send-payload";
 import { IReceiptsSendResponse } from "../types/receipts-send-response";
 import { IReceiptsCancelPayload } from "../types/receipts-cancel-payload";
 import { IReceiptsCancelResponse } from "../types/receipts-cancel-response";
+import { IReceiptsCheckPayload } from "../types/receipts-check-payload";
+import { IReceiptsCheckResponse } from "../types/receipts-check-response";
 
 export class SubscribeAPI implements ISubscribeApiProduct {
 
@@ -189,6 +191,25 @@ export class SubscribeAPI implements ISubscribeApiProduct {
         } catch (error) {
             console.error(error);
             throw new Error("Error while canceling receipt");
+        }
+    }
+
+    async receiptsCheck(payload: IReceiptsCheckPayload): Promise<IReceiptsCheckResponse> {
+        this.validateCredentials();
+
+        try {
+            const res = await this.paymeRequest.post('', {
+                id: payload.requestId,
+                method: SUBSCRIBE_API_METHODS.RECEIPTS_CHECK,
+                params: {
+                    id: payload.params.id,
+                },
+            });
+
+            return res.data;
+        } catch (error) {
+            console.error(error);
+            throw new Error("Error while checking receipt");
         }
     }
 }
