@@ -10,6 +10,8 @@ import { IReceiptsSendPayload } from "./receipts-send-payload";
 import { IReceiptsSendResponse } from "./receipts-send-response";
 import { IReceiptsGetPayload } from "./receipts-get-payload";
 import { IReceiptsGetAllPayload } from "./receipts-get-all-payload";
+import { IReceiptsSetFiscalDataPayload } from "./receipts-set-fiscal-data";
+import { IReceiptsSetFiscalDataResponse } from "./receipts-set-fiscal-data-response";
 
 export interface ISubscribeApiProduct {
     methodName: TApiMethodOption;
@@ -26,5 +28,5 @@ export interface ISubscribeApiProduct {
     receiptsCheck(payload: IReceiptsCheckPayload): Promise<IReceiptsCheckResponse>
     receiptsGet(payload: IReceiptsGetPayload): Promise<IReceiptsGetResponse>
     receiptsGetAll(payload: IReceiptsGetAllPayload): Promise<IReceiptsGetAllResponse>
-    // receiptsSetFiscalData
+    receiptsSetFiscalData(payload: IReceiptsSetFiscalDataPayload): Promise<IReceiptsSetFiscalDataResponse>
 }

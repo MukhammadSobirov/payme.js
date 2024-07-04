@@ -6,7 +6,7 @@ describe('Checks if auth data is provided', () => {
 
         try {
             await subscribeApi.receiptsCreate({
-                id: 1,
+                requestId: 1,
                 params: {
                     amount: 100,
                     description: "Test",

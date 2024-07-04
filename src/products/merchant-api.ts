@@ -1,6 +1,9 @@
 import { TApiMethodOption } from "../types/api-method-option";
 import { IMerchantApiProduct } from "../types/merchant-api-product";
 
+/**
+ * @todo Implement the merchant API
+ */
 export class MerchantAPI implements IMerchantApiProduct {
     private _secret = "";
     private _id = "";

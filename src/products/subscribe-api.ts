@@ -13,10 +13,10 @@ import { IReceiptsCheckPayload } from "../types/receipts-check-payload";
 import { IReceiptsCheckResponse } from "../types/receipts-check-response";
 import { IReceiptsGetPayload } from "../types/receipts-get-payload";
 import { IReceiptsGetAllPayload } from "../types/receipts-get-all-payload";
+import { IReceiptsSetFiscalDataPayload } from "../types/receipts-set-fiscal-data";
+import { IReceiptsSetFiscalDataResponse } from "../types/receipts-set-fiscal-data-response";
 
 export class SubscribeAPI implements ISubscribeApiProduct {
-
-
     private _secret = ""
     private _id = ""
 
@@ -253,6 +253,24 @@ export class SubscribeAPI implements ISubscribeApiProduct {
         } catch (error) {
             console.error(error)
             throw new Error("Error while getting all receipts")
+        }
+    }
+
+    async receiptsSetFiscalData(payload: IReceiptsSetFiscalDataPayload): Promise<IReceiptsSetFiscalDataResponse> {
+        try {
+            const res = await this.paymeRequest.post('', {
+                id: payload.requestId,
+                method: SUBSCRIBE_API_METHODS.RECEIPTS_SET_FISCAL_DATA,
+                params: {
+                    id: payload.params.id,
+                    fiscal_data: payload.params.fiscal_data,
+                },
+            });
+
+            return res.data;
+        } catch (error) {
+            console.error(error);
+            throw new Error("Error while setting fiscal data");
         }
     }
 }
