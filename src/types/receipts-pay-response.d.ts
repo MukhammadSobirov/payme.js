@@ -49,7 +49,13 @@ interface IReceiptsPayReceipt {
   account: IReceiptsPayAccount[];
   card: IReceiptsPayCard;
   merchant: IReceiptsPayMerchant;
+  payer : IPayerphone;
+  
   meta: string | null;
+}
+
+interface IPayerphone {
+  phone: string;
 }
 
 interface IReceiptsPayResult {
