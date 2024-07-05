@@ -64,7 +64,7 @@ interface IReceiptsCreatePayloadDetail {
      */
     receipt_type: number;
     shipping?: IReceiptsCreatePayloadShipping;
-    items: IReceiptsCreatePayloadItem[];
+    items?: IReceiptsCreatePayloadItem[];
 }
 
 interface IReceiptsCreatePayloadParams {
