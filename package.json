@@ -22,6 +22,10 @@
     "type": "git",
     "url": "git://github.com/MukhammadSobirov/payme.js.git"
   },
+  "contributors": [
+    "MukhammadSobirov",
+    "murodjon001"
+  ],
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^29.5.12",
